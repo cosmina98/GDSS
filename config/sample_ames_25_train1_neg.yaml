@@ -2,13 +2,13 @@ data:
   data: ames_25_train1_neg
   dir: './data'
 
-ckpt: ames_25_train1_neg
+ckpt: Aug22-09:38:42_900
 
 sampler:
   predictor: Reverse
   corrector: Langevin
   snr: 0.2
-  scale_eps: 0.9
+  scale_eps: 0.99
   n_steps: 1
 
 sample:

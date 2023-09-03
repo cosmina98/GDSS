@@ -122,8 +122,12 @@ def gen_graph_list(graph_type='grid', possible_params_dict=None, corrupt_func=No
 
 def load_dataset(data_dir='data', file_name=None, need_set=False):
     file_path = os.path.join(data_dir, file_name)
-    with open(file_path + '.pkl', 'rb') as f:
-        graph_list = pickle.load(f)
+    try: 
+        with open(file_path + '.p', 'rb') as f:
+           graph_list = pickle.load(f)
+    except:
+          with open(file_path + '.pkl', 'rb') as f:
+            graph_list = pickle.load(f)
     return graph_list 
 
 
@@ -280,7 +284,7 @@ def generate_dataset(data_dir='data', dataset='community_small'):
         suffix = ''
         print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset + suffix, '-' * 20))
         graphs = load_custom_graph_list(
-            'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_50\ba2motif_50_train1_pos.p',
+            'dataset\ba2motif\ba2motif_50\ba2motif_50_train1_pos.p',
             min_num_nodes=25,
             max_num_nodes=25,
             name='ba2motif_50_train1_pos',
@@ -294,7 +298,7 @@ def generate_dataset(data_dir='data', dataset='community_small'):
         suffix = ''
         print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset + suffix, '-' * 20))
         graphs = load_custom_graph_list(
-            'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_50\ba2motif_50_train1_neg.p',
+            '/dataset/ba2motif/ba2motif_50/ba2motif_50_train1_neg.p',
             min_num_nodes=25,
             max_num_nodes=25,
             name='ba2motif_50_train1_neg',
@@ -309,7 +313,7 @@ def generate_dataset(data_dir='data', dataset='community_small'):
         suffix = ''
         print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset + suffix, '-' * 20))
         graphs = load_custom_graph_list(
-            'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_40\ba2motif_40_train1_pos.p',
+            'dataset\ba2motif\ba2motif_40\ba2motif_40_train1_pos.p',
             min_num_nodes=25,
             max_num_nodes=25,
             name='ba2motif_40_train1_pos',
@@ -323,7 +327,7 @@ def generate_dataset(data_dir='data', dataset='community_small'):
         suffix = ''
         print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset + suffix, '-' * 20))
         graphs = load_custom_graph_list(
-            'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_40\ba2motif_40_train1_neg.p',
+            'dataset\ba2motif\ba2motif_40\ba2motif_40_train1_neg.p',
             min_num_nodes=25,
             max_num_nodes=25,
             name='ba2motif_40_train1_neg',
@@ -339,7 +343,7 @@ def generate_dataset(data_dir='data', dataset='community_small'):
         suffix = ''
         print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset + suffix, '-' * 20))
         graphs = load_custom_graph_list(
-            'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_33\ba2motif_33_train1_pos.p',
+            'dataset\ba2motif\ba2motif_33\ba2motif_33_train1_pos.p',
             min_num_nodes=25,
             max_num_nodes=25,
             name='ba2motif_33_train1_pos',
@@ -353,7 +357,7 @@ def generate_dataset(data_dir='data', dataset='community_small'):
         suffix = ''
         print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset + suffix, '-' * 20))
         graphs = load_custom_graph_list(
-            'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_33\ba2motif_33_train1_neg.p',
+            'dataset\ba2motif\ba2motif_33\ba2motif_33_train1_neg.p',
             min_num_nodes=25,
             max_num_nodes=25,
             name='ba2motif_33_train1_neg',
@@ -366,7 +370,7 @@ def generate_dataset(data_dir='data', dataset='community_small'):
         suffix = ''
         print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset + suffix, '-' * 20))
         graphs = load_custom_graph_list(
-            'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_25\ba2motif_25_train1_pos.p',
+            'dataset\ba2motif\ba2motif_25\ba2motif_25_train1_pos.p',
             min_num_nodes=25,
             max_num_nodes=25,
             name='ba2motif_25_train1_pos',
@@ -380,7 +384,7 @@ def generate_dataset(data_dir='data', dataset='community_small'):
         suffix = ''
         print('{:s} Generating graph data {:s} {:s}'.format('-' * 20, dataset + suffix, '-' * 20))
         graphs = load_custom_graph_list(
-            'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\ba2motif\ba2motif_25\ba2motif_25_train1_neg.p',
+            'dataset\ba2motif\ba2motif_25\ba2motif_25_train1_neg.p',
             min_num_nodes=25,
             max_num_nodes=25,
             name='ba2motif_25_train1_neg',
@@ -389,9 +393,9 @@ def generate_dataset(data_dir='data', dataset='community_small'):
         
    elif dataset == 'syntetic_50_train1_pos':
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_25\synthetic_50_train1_pos.p',
+        'dataset\synthetic\synthetic_25\synthetic_50_train1_pos.p',
         max_num_nodes=100,
-        max_num_nodes=100,
+        min_num_nodes=100,
         name='synthetic_50_train1_pos',
         node_attributes=False,
         graph_labels=True)
@@ -402,18 +406,18 @@ def generate_dataset(data_dir='data', dataset='community_small'):
 
    elif dataset == 'syntetic_50_train1_neg':
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_50\synthetic_50_train1_neg.p',
+        'dataset\synthetic\synthetic_50\synthetic_50_train1_neg.p',
         max_num_nodes=100,
-        max_num_nodes=100,
+        min_num_nodes=100,
         name='synthetic_50_train1_neg',
         node_attributes=False,
         graph_labels=True)
     
    elif dataset == 'syntetic_40_train1_pos':
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_40\synthetic_40_train1_pos.p',
+        'dataset\synthetic\synthetic_40\synthetic_40_train1_pos.p',
         max_num_nodes=100,
-        max_num_nodes=100,
+        min_num_nodes=100,
         name='synthetic_40_train1_pos',
         node_attributes=False,
         graph_labels=True)
@@ -424,18 +428,18 @@ def generate_dataset(data_dir='data', dataset='community_small'):
 
    elif dataset == 'syntetic_40_train1_neg':
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_40\synthetic_40_train1_neg.p',
+        'dataset\synthetic\synthetic_40\synthetic_40_train1_neg.p',
         max_num_nodes=100,
-        max_num_nodes=100,
+        min_num_nodes=100,
         name='synthetic_40_train1_neg',
         node_attributes=False,
         graph_labels=True)
     
    elif dataset == 'syntetic_33_train1_pos':
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_33\synthetic_33_train1_pos.p',
+        'dataset\synthetic\synthetic_33\synthetic_33_train1_pos.p',
         max_num_nodes=100,
-        max_num_nodes=100,
+        min_num_nodes=100,
         name='synthetic_33_train1_pos',
         node_attributes=False,
         graph_labels=True)
@@ -446,18 +450,18 @@ def generate_dataset(data_dir='data', dataset='community_small'):
 
    elif dataset == 'syntetic_33_train1_neg':
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_33\synthetic_33_train1_neg.p',
+        'dataset\synthetic\synthetic_33\synthetic_33_train1_neg.p',
         max_num_nodes=100,
-        max_num_nodes=100,
+        min_num_nodes=100,
         name='synthetic_33_train1_neg',
         node_attributes=False,
         graph_labels=True)
     
    elif dataset == 'syntetic_25_train1_pos':
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_25\synthetic_25_train1_pos.p',
+        'dataset\synthetic\synthetic_25\synthetic_25_train1_pos.p',
         max_num_nodes=100,
-        max_num_nodes=100,
+        min_num_nodes=100,
         name='synthetic_25_train1_pos',
         node_attributes=False,
         graph_labels=True)
@@ -468,17 +472,186 @@ def generate_dataset(data_dir='data', dataset='community_small'):
 
    elif dataset == 'syntetic_25_train1_neg':
     graphs = load_custom_graph_list(
-        'C:\Users\cs843\Documents\PhD\2023\Proposal\Generators tried\SwinGNN\dataset\synthetic\synthetic_25\synthetic_25_train1_neg.p',
+        'dataset\synthetic\synthetic_25\synthetic_25_train1_neg.p',
         max_num_nodes=100,
-        max_num_nodes=100,
+        min_num_nodes=100,
         name='synthetic_25_train1_neg',
         node_attributes=False,
         graph_labels=True)
 
+   elif dataset == 'synthetic_path_vs_path_50_train1_pos':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_path\synthetic_path_vs_path_25\synthetic_path_vs_path_50_train1_pos.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_path_50_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    #save_ego_dd_datasets(graphs, dataset.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset + suffix, save_dir='data')
 
+
+   elif dataset == 'synthetic_path_vs_path_50_train1_neg':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_path\synthetic_path_vs_path_50\synthetic_path_vs_path_50_train1_neg.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_path_50_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+   elif dataset == 'synthetic_path_vs_path_40_train1_pos':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_path\synthetic_path_vs_path_40\synthetic_path_vs_path_40_train1_pos.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_path_40_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    #save_ego_dd_datasets(graphs, dataset.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset + suffix, save_dir='data')
+
+
+   elif dataset == 'synthetic_path_vs_path_40_train1_neg':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_path\synthetic_path_vs_path_40\synthetic_path_vs_path_40_train1_neg.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_path_40_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+   elif dataset == 'synthetic_path_vs_path_33_train1_pos':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_path\synthetic_path_vs_path_33\synthetic_path_vs_path_33_train1_pos.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_path_33_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    #save_ego_dd_datasets(graphs, dataset.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset + suffix, save_dir='data')
+
+
+   elif dataset == 'synthetic_path_vs_path_33_train1_neg':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_path\synthetic_path_vs_path_33\synthetic_path_vs_path_33_train1_neg.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_path_33_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+   elif dataset == 'synthetic_path_vs_path_25_train1_pos':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_path\synthetic_path_vs_path_25\synthetic_path_vs_path_25_train1_pos.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_path_25_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    #save_ego_dd_datasets(graphs, dataset.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset + suffix, save_dir='data')
+
+
+   elif dataset == 'synthetic_path_vs_path_25_train1_neg':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_path\synthetic_path_vs_path_25\synthetic_path_vs_path_25_train1_neg.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_path_25_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+   elif dataset == 'synthetic_path_vs_tree_50_train1_pos':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_tree\synthetic_path_vs_tree_25\synthetic_path_vs_tree_50_train1_pos.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_tree_50_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    #save_ego_dd_datasets(graphs, dataset.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset + suffix, save_dir='data')
+
+
+   elif dataset == 'synthetic_path_vs_tree_50_train1_neg':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_tree\synthetic_path_vs_tree_50\synthetic_path_vs_tree_50_train1_neg.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_tree_50_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+   elif dataset == 'synthetic_path_vs_tree_40_train1_pos':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_tree\synthetic_path_vs_tree_40\synthetic_path_vs_tree_40_train1_pos.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_tree_40_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    #save_ego_dd_datasets(graphs, dataset.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset + suffix, save_dir='data')
+
+
+   elif dataset == 'synthetic_path_vs_tree_40_train1_neg':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_tree\synthetic_path_vs_tree_40\synthetic_path_vs_tree_40_train1_neg.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_tree_40_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+   elif dataset == 'synthetic_path_vs_tree_33_train1_pos':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_tree\synthetic_path_vs_tree_33\synthetic_path_vs_tree_33_train1_pos.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_tree_33_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+    #save_ego_dd_datasets(graphs, dataset.lower() + suffix)
+    #plot_graphs_list(graphs, title=dataset + suffix, save_dir='data')
+
+
+   elif dataset == 'synthetic_path_vs_tree_33_train1_neg':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_tree\synthetic_path_vs_tree_33\synthetic_path_vs_tree_33_train1_neg.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_tree_33_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
+    
+   elif dataset == 'synthetic_path_vs_tree_25_train1_pos':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_tree\synthetic_path_vs_tree_25\synthetic_path_vs_tree_25_train1_pos.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_tree_25_train1_pos',
+        node_attributes=False,
+        graph_labels=True)
+    
+   elif dataset == 'synthetic_path_vs_tree_25_train1_neg':
+    graphs = load_custom_graph_list(
+        'dataset\synthetic_path_vs_tree\synthetic_path_vs_tree_25\synthetic_path_vs_tree_25_train1_neg.p',
+        min_num_nodes=20,
+        max_num_nodes=20,
+        name='synthetic_path_vs_tree_25_train1_neg',
+        node_attributes=False,
+        graph_labels=True)
    else:
         raise NotImplementedError(f'Dataset {datset} not supproted.')
-
+        
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Generate dataset')
