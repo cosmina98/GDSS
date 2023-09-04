@@ -130,7 +130,7 @@ class Sampler_mol(object):
         with open(f'data/{self.configt.data.data.lower()}_test_nx.pkl', 'rb') as f:
             self.test_graph_list = pickle.load(f)                                   # for NSPDK MMD
 
-        self.init_flags = init_flags(self.train_graph_list, self.configt, len(train_smiles)).to( device=torch.device('mps'))
+        self.init_flags = init_flags(self.train_graph_list, self.configt, len(train_smiles)).to( self.device[0])
         x, adj, _ = self.sampling_fn(self.model_x, self.model_adj, self.init_flags)
         
         samples_int = quantize_mol(adj)
