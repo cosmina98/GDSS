@@ -32,7 +32,7 @@ class Sampler(object):
 
         self.log_folder_name, self.log_dir, _ = set_log(self.configt, is_train=False)
         self.log_name = f"{self.config.ckpt}-sample"
-        logger = Logger(str(os.path.join(self.log_dir, f'{self.log_name}.log')), mode='a')
+        logger = Logger(str(os.path.join(self.log_dir, f'{self.log_name}_5000.log')), mode='a')
 
         if not check_log(self.log_folder_name, self.log_name):
             logger.log(f'{self.log_name}')
