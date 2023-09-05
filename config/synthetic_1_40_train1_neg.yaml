@@ -60,3 +60,5 @@ sample:
   probability_flow: False
   eps: 1.0e-4
   seed: 12
+
+ckpt: Aug25-15:36:25_900

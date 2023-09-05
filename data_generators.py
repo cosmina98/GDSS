@@ -279,7 +279,7 @@ def generate_dataset(data_dir='data', dataset='community_small'):
    else:
     try:
         graphs = load_custom_graph_list(
-            r'dataset\{}\{}\{}.p'.format(dataset[:dataset.rindex('_', 0, dataset.rfind('_'))]\
+             r'data/{}/{}/{}.p'.format(dataset[:dataset[:dataset.rindex('_', 0, dataset.rfind('_'))].rfind('_')]\
             , dataset[:dataset.rindex('_', 0, dataset.rfind('_'))]\
             , dataset),     #second to last character 
             min_num_nodes=30,
