@@ -1,5 +1,5 @@
 data: 
-  data: synthetic_33_train1_pos
+  data: synthetic_1_33_train1_pos
   dir: './data'
   batch_size: 10 
   test_split: 0
