@@ -2,7 +2,7 @@ data:
   data: cyp1a2_veith_50_train1_neg
   dir: './data'
 
-ckpt: cyp1a2_veith_50_train1_neg
+ckpt: Sep06-17:03:36_900
 
 sampler:
   predictor: Reverse

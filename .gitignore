@@ -5,7 +5,6 @@ logs_train/
 samples/
 evaluation/orca/*.txt
 evaluation/orca/orca
-toy/checkpoints/
 toy/logs/
 toy/plot/
 toy/samples/
@@ -143,4 +142,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-*.pth
