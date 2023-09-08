@@ -61,5 +61,5 @@ sample:
   eps: 1.0e-4
   seed: 12
 
-ckpt: Aug25-15:36:25_900
+ckpt: Sep05-08_39_49_5000
 
